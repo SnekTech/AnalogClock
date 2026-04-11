@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTemplate", "src\Game\GameTemplate.csproj", "{F3C1D76A-E1FE-4B24-98F8-10C56B81AC75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalogClock", "src\Game\AnalogClock.csproj", "{F3C1D76A-E1FE-4B24-98F8-10C56B81AC75}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{21D271A6-1DDF-4A93-AB8C-FB8972D429E3}"
 EndProject
