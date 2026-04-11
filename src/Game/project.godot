@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="godot-pixel-art-template"
+run/main_scene="uid://ddeqm380rgljy"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/icon="uid://bdohtig5mdd7l"
+
+[autoload]
+
+GTweensGodotUpdater="*res://Scripts/Autoload/GTweensGodotUpdater.cs"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
+[dotnet]
+
+project/assembly_name="GameTemplate"
+project/solution_directory="../.."
+
+[editor]
+
+naming/scene_name_casing=1
+
+[input]
+
+LeftMouse={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(163, 20),"global_position":Vector2(177, 93),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
