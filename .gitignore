@@ -13,4 +13,5 @@ obj/
 
 **/.idea
 AssetsRaw/
+*.DotSettings
 *.DotSettings.user
