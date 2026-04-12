@@ -1,4 +1,4 @@
-﻿namespace GameTemplate;
+﻿namespace AnalogClock;
 
 public partial class Main : Node2D
 {

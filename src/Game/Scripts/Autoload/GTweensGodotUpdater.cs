@@ -1,5 +1,5 @@
 ﻿using GTweensGodot.Contexts;
 
-namespace GameTemplate.Autoload;
+namespace AnalogClock.Autoload;
 
 public partial class GTweensGodotUpdater : GodotGTweensContextNode;

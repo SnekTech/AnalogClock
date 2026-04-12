@@ -1,13 +1,18 @@
 <Project Sdk="Godot.NET.Sdk/4.6.1">
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <EnableDynamicLoading>true</EnableDynamicLoading>
-    <Nullable>enable</Nullable>
-    <LangVersion>default</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="GDTask" Version="3.0.0" />
-    <PackageReference Include="GodotSharp.SourceGenerators" Version="2.6.0" />
-    <PackageReference Include="GTweensGodot" Version="6.0.0" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+        <Nullable>enable</Nullable>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="**/*.puml"/>
+        <Content Include="**/*.gdshader"/>
+        <Content Include="**/*.gdshaderinc"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="GDTask" Version="3.0.0"/>
+        <PackageReference Include="GodotSharp.SourceGenerators" Version="2.6.0"/>
+        <PackageReference Include="GTweensGodot" Version="6.0.0"/>
+    </ItemGroup>
 </Project>

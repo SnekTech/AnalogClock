@@ -34,7 +34,7 @@ window/stretch/scale_mode="integer"
 
 [dotnet]
 
-project/assembly_name="GameTemplate"
+project/assembly_name="AnalogClock"
 project/solution_directory="../.."
 
 [editor]

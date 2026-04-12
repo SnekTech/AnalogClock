@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddeqm380rgljy"]
+[gd_scene format=3 uid="uid://ddeqm380rgljy"]
 
 [ext_resource type="Script" uid="uid://bac43f1ymlhio" path="res://Scripts/Main.cs" id="1_r150o"]
-[ext_resource type="Texture2D" uid="uid://bdohtig5mdd7l" path="res://GodotIcon.png" id="2_idj7w"]
+[ext_resource type="Shader" uid="uid://del4sgnpmhddc" path="res://Shaders/CircleMask.gdshader" id="2_idj7w"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kln2b"]
+shader = ExtResource("2_idj7w")
+
+[sub_resource type="Gradient" id="Gradient_rgh2o"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pbw6q"]
+gradient = SubResource("Gradient_rgh2o")
+
+[node name="Main" type="Node2D" unique_id=1327313917]
 script = ExtResource("1_r150o")
 
-[node name="icon" type="Sprite2D" parent="."]
+[node name="icon" type="Sprite2D" parent="." unique_id=1065732689]
+material = SubResource("ShaderMaterial_kln2b")
 position = Vector2(286, 159)
-texture = ExtResource("2_idj7w")
+texture = SubResource("GradientTexture2D_pbw6q")
