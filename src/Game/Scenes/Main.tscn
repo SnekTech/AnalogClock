@@ -1,13 +1,23 @@
 [gd_scene format=3 uid="uid://ddeqm380rgljy"]
 
 [ext_resource type="Script" uid="uid://bac43f1ymlhio" path="res://Scripts/Main.cs" id="1_r150o"]
-[ext_resource type="Shader" uid="uid://del4sgnpmhddc" path="res://Shaders/CircleMask.gdshader" id="2_idj7w"]
+[ext_resource type="Shader" uid="uid://del4sgnpmhddc" path="res://Shaders/Dial.gdshader" id="2_idj7w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kln2b"]
 shader = ExtResource("2_idj7w")
 shader_parameter/u_radius = 1.0
+shader_parameter/u_background_color = Color(0.113725, 0.168627, 0.32549, 1)
+shader_parameter/u_marking_padding = 0.814000038665
+shader_parameter/u_minor_marking_length = 0.85200004047
+shader_parameter/u_minor_marking_width = 0.2050000097375
+shader_parameter/u_minor_marking_color = Color(0.372549, 0.341176, 0.309804, 1)
+shader_parameter/u_major_marking_length = 0.79200003762
+shader_parameter/u_major_marking_width = 0.5
+shader_parameter/u_major_marking_color = Color(1, 0.945098, 0.909804, 1)
 
 [sub_resource type="Gradient" id="Gradient_rgh2o"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.113725, 0.168627, 0.32549, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pbw6q"]
 gradient = SubResource("Gradient_rgh2o")
@@ -15,7 +25,8 @@ gradient = SubResource("Gradient_rgh2o")
 [node name="Main" type="Node2D" unique_id=1327313917]
 script = ExtResource("1_r150o")
 
-[node name="icon" type="Sprite2D" parent="." unique_id=1065732689]
+[node name="Dial" type="Sprite2D" parent="." unique_id=1065732689]
 material = SubResource("ShaderMaterial_kln2b")
 position = Vector2(286, 159)
+scale = Vector2(4, 4)
 texture = SubResource("GradientTexture2D_pbw6q")
