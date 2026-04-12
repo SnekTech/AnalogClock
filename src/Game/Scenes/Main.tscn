@@ -5,6 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kln2b"]
 shader = ExtResource("2_idj7w")
+shader_parameter/u_radius = 1.0
 
 [sub_resource type="Gradient" id="Gradient_rgh2o"]
 
