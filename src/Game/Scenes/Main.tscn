@@ -14,6 +14,11 @@ shader_parameter/u_minor_marking_color = Color(0.372549, 0.341176, 0.309804, 1)
 shader_parameter/u_major_marking_length = 0.79200003762
 shader_parameter/u_major_marking_width = 0.5
 shader_parameter/u_major_marking_color = Color(1, 0.945098, 0.909804, 1)
+shader_parameter/u_hour_hand_progress = 0.8110000385225
+shader_parameter/u_minute_hand_progress = 0.1510000071725
+shader_parameter/u_second_hand_progress = 0.3990000189525
+shader_parameter/u_hour_hand_color = Color(1, 0.945098, 0.909804, 1)
+shader_parameter/u_second_hand_color = Color(1, 0, 0.301961, 1)
 
 [sub_resource type="Gradient" id="Gradient_rgh2o"]
 offsets = PackedFloat32Array(0)
