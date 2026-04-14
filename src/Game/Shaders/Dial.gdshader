@@ -20,6 +20,9 @@ group_uniforms dial_hand;
 uniform float u_hour_hand_progress: hint_range(0, 1);
 uniform float u_minute_hand_progress: hint_range(0, 1);
 uniform float u_second_hand_progress: hint_range(0, 1);
+uniform float u_second_hand_tail_width: hint_range(0, 1);
+uniform float u_second_hand_tail_length: hint_range(0, 1);
+
 uniform vec3 u_hour_hand_color: source_color;
 uniform vec3 u_second_hand_color: source_color;
 group_uniforms;
@@ -117,7 +120,18 @@ float DrawMinuteHand(vec2 uv)
 
 float DrawSecondHand(vec2 uv)
 {
-    return DrawHand( uv, u_second_hand_progress, 0.9, MajorMarkingWidthMax );
+    const float SecondHandLengthMax = 0.9;
+    const float SecondHandWidth = MajorMarkingWidthMax;
+    
+    float angle = u_second_hand_progress * TAU;
+    float mask = DrawHand( uv, angle, SecondHandLengthMax, SecondHandWidth );
+    
+    float tailLength = SecondHandLengthMax * u_second_hand_tail_length;
+    float tailWidth = SecondHandWidth + SecondHandWidth * u_second_hand_tail_width;
+    float tailAngle = angle + PI;
+    float tailMask = DrawHand( uv, tailAngle, tailLength, tailWidth );
+    
+    return Clamp01( mask + tailMask );
 }
 
 void fragment()
