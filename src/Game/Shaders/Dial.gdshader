@@ -79,6 +79,20 @@ float DrawMarkingAtAngle(vec2 uv, float angle, float width, float length, float 
     return DrawLineSegment( uv, markingStartPoint, markingEndPoint, width );
 }
 
+float DrawMarkings(vec2 uv, float angleStep, float width, float length, float padding)
+{
+    float minorMarkingWidth = MinorMarkingWidthMax * u_minor_marking_width;
+    float minorMarkingLength = MinorMarkingLengthMax * u_minor_marking_length;
+    
+    float mask = 0.0;
+    for ( float targetAngle = 0.0; targetAngle < TAU; targetAngle += angleStep )
+    {
+        mask += DrawMarkingAtAngle( uv, targetAngle, width, length, padding );
+    }
+    mask = Clamp01( mask );
+    return mask;
+}
+
 float DrawHand(vec2 uv, float angle, float handLength, float handWidth)
 {
     angle += -PI / 2.0;
@@ -123,23 +137,13 @@ void fragment()
     float minorStep = TAU / 60.0;
     float minorMarkingWidth = MinorMarkingWidthMax * u_minor_marking_width;
     float minorMarkingLength = MinorMarkingLengthMax * u_minor_marking_length;
-    float minorMarkingMask = 0.0;
-    for ( float targetAngle = 0.0; targetAngle < TAU; targetAngle += minorStep )
-    {
-        minorMarkingMask += DrawMarkingAtAngle( uv, targetAngle, minorMarkingWidth, minorMarkingLength, markingPadding );
-    }
-    minorMarkingMask = Clamp01( minorMarkingMask );
+    float minorMarkingMask = DrawMarkings( uv, minorStep, minorMarkingWidth, minorMarkingLength, markingPadding );
     
     // major markings
     float majorStep = TAU / 12.0;
     float majorMarkingWidth = MajorMarkingWidthMax * u_major_marking_width;
     float majorMarkingLength = MajorMarkingLengthMax * u_major_marking_length;
-    float majorMarkingMask = 0.0;
-    for ( float markingAngle = 0.0; markingAngle < TAU; markingAngle += majorStep )
-    {
-        majorMarkingMask += DrawMarkingAtAngle( uv, markingAngle, majorMarkingWidth, majorMarkingLength, markingPadding );
-    }
-    majorMarkingMask = Clamp01( majorMarkingMask );
+    float majorMarkingMask = DrawMarkings( uv, majorStep, majorMarkingWidth, majorMarkingLength, markingPadding );
     
     float hourHandMask = DrawHourHand( uv );
     float minuteHandMask = DrawMinuteHand( uv );
