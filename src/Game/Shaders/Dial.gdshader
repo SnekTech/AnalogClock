@@ -17,9 +17,9 @@ uniform vec3 u_major_marking_color: source_color;
 group_uniforms;
 
 group_uniforms dial_hand;
-uniform float u_hour_hand_progress: hint_range(0, 1);
-uniform float u_minute_hand_progress: hint_range(0, 1);
-uniform float u_second_hand_progress: hint_range(0, 1);
+uniform float u_hour_hand_rads: hint_range(0, 6.2831853); // PI * 2
+uniform float u_minute_hand_rads: hint_range(0, 6.2831853);
+uniform float u_second_hand_rads: hint_range(0, 6.2831853);
 uniform float u_second_hand_tail_width: hint_range(0, 1);
 uniform float u_second_hand_tail_length: hint_range(0, 1);
 
@@ -42,12 +42,6 @@ float Clamp01(float x)
 float ModAngle(float angle)
 {
     return mod( angle + TAU, TAU );
-}
-
-float GetDialAngle(vec2 uv)
-{
-    float dial = atan( uv.y, -uv.x );
-    return ModAngle( dial );
 }
 
 float IsBetween(float x, float min, float max)
@@ -108,14 +102,14 @@ float DrawHourHand(vec2 uv)
 {
     const float HourHandLength = 0.6;
     const float HourHandWidth = 0.02;
-    return DrawHand( uv, u_hour_hand_progress * TAU, HourHandLength, HourHandWidth );
+    return DrawHand( uv, u_hour_hand_rads, HourHandLength, HourHandWidth );
 }
 
 float DrawMinuteHand(vec2 uv)
 {
     const float MinuteHandLength = 1.0 - MarkingPaddingMax - 0.1;
     const float MinuteHandWidth = 0.02;
-    return DrawHand( uv, u_minute_hand_progress * TAU, MinuteHandLength, MinuteHandWidth );
+    return DrawHand( uv, u_minute_hand_rads, MinuteHandLength, MinuteHandWidth );
 }
 
 float DrawSecondHand(vec2 uv)
@@ -123,7 +117,7 @@ float DrawSecondHand(vec2 uv)
     const float SecondHandLengthMax = 0.9;
     const float SecondHandWidth = MajorMarkingWidthMax;
     
-    float angle = u_second_hand_progress * TAU;
+    float angle = u_second_hand_rads;
     float mask = DrawHand( uv, angle, SecondHandLengthMax, SecondHandWidth );
     
     float tailLength = SecondHandLengthMax * u_second_hand_tail_length;
