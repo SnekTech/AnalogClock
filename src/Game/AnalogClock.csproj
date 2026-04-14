@@ -15,4 +15,7 @@
         <PackageReference Include="GodotSharp.SourceGenerators" Version="2.6.0"/>
         <PackageReference Include="GTweensGodot" Version="6.0.0"/>
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\RiderProjects\GodotGadgets\GodotGadgets\GodotGadgets.csproj" />
+    </ItemGroup>
 </Project>
