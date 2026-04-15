@@ -34,3 +34,7 @@ material = SubResource("ShaderMaterial_kln2b")
 scale = Vector2(3.235, 3.235)
 texture = SubResource("GradientTexture2D_pbw6q")
 script = ExtResource("2_4xg0y")
+
+[node name="Timer" type="Timer" parent="." unique_id=750863106]
+wait_time = 0.1
+ignore_time_scale = true

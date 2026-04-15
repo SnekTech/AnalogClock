@@ -23,10 +23,7 @@ static class DialShaderInputExtensions
 {
     extension(DialShaderInput)
     {
-        internal static DialShaderInput FromDateTime(DateTime dateTime) =>
-            DialShaderInput.FromTimeOnly(TimeOnly.FromDateTime(dateTime));
-
-        static DialShaderInput FromTimeOnly(TimeOnly timeOnly)
+        internal static DialShaderInput FromTimeOnly(TimeOnly timeOnly)
         {
             var (hour, minute, second) = (timeOnly.Hour % 12, timeOnly.Minute, timeOnly.Second);
             const float secondsInTwelveHours = 12 * 3600;
