@@ -25,12 +25,13 @@ GTweensGodotUpdater="*res://Scripts/Autoload/GTweensGodotUpdater.cs"
 
 [display]
 
-window/size/viewport_width=640
+window/size/viewport_width=360
 window/size/viewport_height=360
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
+window/per_pixel_transparency/allowed=true
 
 [dotnet]
 
@@ -56,3 +57,6 @@ LeftMouse={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true

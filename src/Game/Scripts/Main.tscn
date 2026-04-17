@@ -7,4 +7,5 @@
 script = ExtResource("1_8cr4g")
 
 [node name="Dial" parent="." unique_id=757393883 instance=ExtResource("2_rff6y")]
-position = Vector2(286, 159)
+scale = Vector2(5.63, 5.63)
+centered = false
