@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://bac43f1ymlhio" path="res://Scripts/Main.cs" id="1_8cr4g"]
 [ext_resource type="PackedScene" uid="uid://4cnkhrmwy4r4" path="res://Scripts/Dial.tscn" id="2_rff6y"]
 
-[node name="Main" type="Node2D" unique_id=1327313917]
+[node name="Main" type="Node" unique_id=1331675429]
 script = ExtResource("1_8cr4g")
 
+[node name="UI" type="CanvasLayer" parent="." unique_id=925602393]
+
 [node name="Dial" parent="." unique_id=757393883 instance=ExtResource("2_rff6y")]
-scale = Vector2(5.63, 5.63)
+scale = Vector2(5.625, 5.625)
 centered = false
