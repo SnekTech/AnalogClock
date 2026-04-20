@@ -3,26 +3,26 @@
 namespace AnalogClock;
 
 [SceneTree]
-public partial class Dial : Sprite2D
+public partial class DialControl : Control
 {
     DialShader _dialShader = null!;
 
     public override void _Ready()
     {
-        _dialShader = new DialShader(this.GetMaterialAs<ShaderMaterial>());
+        _dialShader = new DialShader(_.DialRect.GetMaterialAs<ShaderMaterial>());
         UpdateDialShader();
 
-        _.Timer.Start();
+        _.ClockTimer.Start();
     }
 
     public override void _EnterTree()
     {
-        _.Timer.Timeout += OnSyncTimerTimeOut;
+        _.ClockTimer.Timeout += OnSyncTimerTimeOut;
     }
 
     public override void _ExitTree()
     {
-        _.Timer.Timeout -= OnSyncTimerTimeOut;
+        _.ClockTimer.Timeout -= OnSyncTimerTimeOut;
     }
 
     void OnSyncTimerTimeOut()

@@ -37,6 +37,6 @@ script = ExtResource("2_hu7lo")
 [node name="DigitLabel" parent="." unique_id=1297326730 instance=ExtResource("2_m1fcc")]
 layout_mode = 0
 offset_left = 120.0
-offset_top = 11.0
+offset_top = 13.0
 offset_right = 137.0
-offset_bottom = 35.0
+offset_bottom = 37.0
