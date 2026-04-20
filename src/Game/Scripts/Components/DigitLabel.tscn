@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b8i3pdap81t2j"]
+
+[ext_resource type="Script" uid="uid://c7ms52jms2ptf" path="res://Scripts/Components/DigitLabel.cs" id="1_j12c3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rff6y"]
+font_color = Color(1, 0.945098, 0.909804, 1)
+
+[node name="DigitLabel" type="Label" unique_id=1297326730]
+offset_right = 11.0
+offset_bottom = 15.0
+text = "12"
+label_settings = SubResource("LabelSettings_rff6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_j12c3")

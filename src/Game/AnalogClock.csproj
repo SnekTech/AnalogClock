@@ -12,7 +12,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="GDTask" Version="3.0.0"/>
-        <PackageReference Include="GodotSharp.SourceGenerators" Version="2.6.0"/>
+        <PackageReference Include="GodotSharp.SourceGenerators" Version="2.7.0-260408-2121.Release" />
         <PackageReference Include="GTweensGodot" Version="6.0.0"/>
     </ItemGroup>
     <ItemGroup>
