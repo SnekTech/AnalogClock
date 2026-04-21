@@ -4,6 +4,13 @@ uniform float u_radius: hint_range(0, 1) = 1.0;
 uniform vec3 u_background_color: source_color;
 uniform float u_marking_padding: hint_range(0, 1) = 0.5;
 
+group_uniforms center_pin;
+uniform float u_center_pin_radius: hint_range(0, 1) = 0.5;
+uniform float u_hour_hand_pin_radius: hint_range(0, 1) = 0.5;
+uniform float u_second_hand_pin_radius: hint_range(0, 1) = 0.5;
+uniform vec3 u_center_pin_color: source_color;
+group_uniforms;
+
 group_uniforms minor_marking;
 uniform float u_minor_marking_length: hint_range(0, 1) = 0.5;
 uniform float u_minor_marking_width: hint_range(0, 1) = 0.5;
@@ -158,10 +165,18 @@ void fragment()
     float minuteHandMask = DrawMinuteHand( uv );
     float secondHandMask = DrawSecondHand( uv );
     
+    float centerPinMask = step( length( uv ), u_center_pin_radius );
+    float hourHandPinMask = step( length( uv ), u_hour_hand_pin_radius );
+    float secondHandPinMask = step( length( uv ), u_second_hand_pin_radius );
+    
     COLOR.rgb = mix( COLOR.rgb, u_minor_marking_color, minorMarkingMask );
     COLOR.rgb = mix( COLOR.rgb, u_major_marking_color, majorMarkingMask );
     
     COLOR.rgb = mix( COLOR.rgb, u_hour_hand_color, hourHandMask );
     COLOR.rgb = mix( COLOR.rgb, u_hour_hand_color, minuteHandMask );
+    
+    COLOR.rgb = mix( COLOR.rgb, u_hour_hand_color, hourHandPinMask );
     COLOR.rgb = mix( COLOR.rgb, u_second_hand_color, secondHandMask );
+    COLOR.rgb = mix( COLOR.rgb, u_second_hand_color, secondHandPinMask );
+    COLOR.rgb = mix( COLOR.rgb, u_center_pin_color, centerPinMask );
 }
