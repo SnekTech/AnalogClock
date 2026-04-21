@@ -22,6 +22,7 @@ uniform float u_minute_hand_rads: hint_range(0, 6.2831853);
 uniform float u_second_hand_rads: hint_range(0, 6.2831853);
 uniform float u_second_hand_tail_width: hint_range(0, 1);
 uniform float u_second_hand_tail_length: hint_range(0, 1);
+uniform float u_second_hand_tail_thin_ratio: hint_range(0, 1) = 0.2;
 
 uniform vec3 u_hour_hand_color: source_color;
 uniform vec3 u_second_hand_color: source_color;
@@ -121,7 +122,7 @@ float DrawSecondHand(vec2 uv)
     float mask = DrawHand( uv, angle, SecondHandLengthMax, SecondHandWidth );
     
     float tailLength = SecondHandLengthMax * u_second_hand_tail_length;
-    float tailWidth = SecondHandWidth + SecondHandWidth * u_second_hand_tail_width;
+    float tailWidth = length( uv ) < tailLength * u_second_hand_tail_thin_ratio ? SecondHandWidth : SecondHandWidth + SecondHandWidth * u_second_hand_tail_width;
     float tailAngle = angle + PI;
     float tailMask = DrawHand( uv, tailAngle, tailLength, tailWidth );
     
