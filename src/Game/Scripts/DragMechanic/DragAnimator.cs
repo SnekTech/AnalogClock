@@ -20,6 +20,7 @@ public class DragAnimator(TextureRect clockTexture)
         KillCurrentTween();
 
         var tween = GTweenSequenceBuilder.New()
+            .Join(clockTexture.TweenPositionY(0, ShortAnim))
             .Join(clockTexture.TweenScale(Vector2.One, NormalAnim))
             .Join(clockTexture.TweenRotation(0f, NormalAnim))
             .Join(clockTexture.TweenModulate(
