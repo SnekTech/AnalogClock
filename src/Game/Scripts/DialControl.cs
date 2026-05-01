@@ -7,6 +7,9 @@ public partial class DialControl : Control
 {
     DialShader _dialShader = null!;
 
+    public TextureRect TextureRect => _.DialRect;
+    public Control DragArea => _.DragArea;
+
     public override void _Ready()
     {
         _dialShader = new DialShader(_.DialRect.GetMaterialAs<ShaderMaterial>());

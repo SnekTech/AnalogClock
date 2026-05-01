@@ -4,24 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://bkbu1vybfrfmf" path="res://Scripts/Components/DialRect.tscn" id="1_k15ga"]
 
 [node name="DialControl" type="Control" unique_id=1447801947]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_g8gyl")
 
 [node name="DialRect" parent="." unique_id=1426816986 instance=ExtResource("1_k15ga")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ClockTimer" type="Timer" parent="." unique_id=1766493235]
 wait_time = 0.1
 ignore_time_scale = true
+
+[node name="DragArea" type="ColorRect" parent="." unique_id=258990606]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

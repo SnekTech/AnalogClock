@@ -4,6 +4,9 @@
         <EnableDynamicLoading>true</EnableDynamicLoading>
         <Nullable>enable</Nullable>
         <LangVersion>default</LangVersion>
+
+        <!-- Catch compiler-mismatch issues with the Introspection generator -->
+        <WarningsAsErrors>CS9057</WarningsAsErrors>
     </PropertyGroup>
     <ItemGroup>
         <Content Include="**/*.puml"/>
@@ -11,11 +14,17 @@
         <Content Include="**/*.gdshaderinc"/>
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Chickensoft.LogicBlocks" Version="5.20.0"/>
+        <PackageReference Include="Chickensoft.LogicBlocks.DiagramGenerator" Version="5.20.0"
+                          PrivateAssets="all" OutputItemType="analyzer"/>
+        <PackageReference Include="Chickensoft.Introspection.Generator" Version="3.0.2"
+                          PrivateAssets="all" OutputItemType="analyzer"/>
+
         <PackageReference Include="GDTask" Version="3.0.0"/>
-        <PackageReference Include="GodotSharp.SourceGenerators" Version="2.7.0-260408-2121.Release" />
+        <PackageReference Include="GodotSharp.SourceGenerators" Version="2.7.0-260408-2121.Release"/>
         <PackageReference Include="GTweensGodot" Version="6.0.0"/>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\RiderProjects\GodotGadgets\GodotGadgets\GodotGadgets.csproj" />
+        <ProjectReference Include="..\..\..\..\RiderProjects\GodotGadgets\GodotGadgets\GodotGadgets.csproj"/>
     </ItemGroup>
 </Project>
