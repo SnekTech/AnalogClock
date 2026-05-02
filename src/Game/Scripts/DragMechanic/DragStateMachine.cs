@@ -30,7 +30,7 @@ public partial class DragStateMachine : LogicBlock<DragStateMachine.State>
     {
         public abstract record IdleBase : State;
 
-        public record Idle : IdleBase, IGet<Input.MouseEntered>
+        public record Idle : IdleBase, IGet<Input.MouseEntered>, IGet<Input.LeftMousePressed>
         {
             public Idle()
             {
@@ -38,6 +38,7 @@ public partial class DragStateMachine : LogicBlock<DragStateMachine.State>
             }
             
             public Transition On(in Input.MouseEntered input) => To<Hover>();
+            public Transition On(in Input.LeftMousePressed input) => To<Pickup>();
         }
 
         public record Hover : IdleBase, IGet<Input.MouseExited>, IGet<Input.LeftMousePressed>
