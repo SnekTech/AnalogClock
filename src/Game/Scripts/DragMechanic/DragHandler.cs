@@ -50,6 +50,7 @@ public partial class DragHandler : Node
         _dragAnimator.PickupEnded -= OnDragAnimatorPickupEffectEnded;
 
         _stateBinding.Dispose();
+        _dragAnimator.Dispose();
         _stateMachine.Stop();
     }
 
