@@ -4,7 +4,7 @@ public partial class DragHandler : Node
 {
     [Export]
     DialControl dialControl = null!;
-    
+
     Control _dragArea = null!;
 
     readonly DragStateMachine _stateMachine = new();
@@ -48,7 +48,7 @@ public partial class DragHandler : Node
         _dragArea.MouseExited -= OnDragAreaMouseExited;
         _dragArea.GuiInput -= OnGuiInput;
         _dragAnimator.PickupEnded -= OnDragAnimatorPickupEffectEnded;
-        
+
         _stateBinding.Dispose();
         _stateMachine.Stop();
     }
@@ -94,11 +94,7 @@ public partial class DragHandler : Node
             var mousePositionDelta = currentMousePosition - _dragStartMousePos;
             window.Position = _windowStartPos + mousePositionDelta;
 
-            var screenSize = DisplayServer.ScreenGetSize();
-            window.Position = new Vector2I(
-                Mathf.Clamp(window.Position.X, 0, screenSize.X - 100),
-                Mathf.Clamp(window.Position.Y, 0, screenSize.Y - 100)
-            );
+            window.Position = ClampToAllScreens(window);
         }
         else
         {
@@ -107,8 +103,22 @@ public partial class DragHandler : Node
         }
     }
 
-    void OnDragAreaMouseEntered() => _stateMachine.Input_MouseEntered();
+    static Vector2I ClampToAllScreens(Window window)
+    {
+        var screenIndex = DisplayServer.WindowGetCurrentScreen(window.GetWindowId());
+        screenIndex = screenIndex < 0 ? DisplayServer.GetPrimaryScreen() : screenIndex;
 
+        var screenRect = DisplayServer.ScreenGetUsableRect(screenIndex);
+
+        var (windowPosition, windowSize) = (window.Position, window.Size);
+
+        return new Vector2I(
+            Mathf.Clamp(windowPosition.X, screenRect.Position.X, screenRect.End.X - windowSize.X),
+            Mathf.Clamp(windowPosition.Y, screenRect.Position.Y, screenRect.End.Y - windowSize.Y)
+        );
+    }
+
+    void OnDragAreaMouseEntered() => _stateMachine.Input_MouseEntered();
     void OnDragAreaMouseExited() => _stateMachine.Input_MouseExited();
     void OnDragAnimatorPickupEffectEnded() => _stateMachine.Input_PickupEffectEnded();
 }
