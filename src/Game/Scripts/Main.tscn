@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bac43f1ymlhio" path="res://Scripts/Main.cs" id="1_8cr4g"]
 [ext_resource type="PackedScene" uid="uid://bxe56u135oy1j" path="res://Scripts/DialControl.tscn" id="2_8cr4g"]
+[ext_resource type="PackedScene" uid="uid://cl500nm3m3bve" path="res://Scripts/Components/CloseButton.tscn" id="3_gw17c"]
 [ext_resource type="Script" uid="uid://1t5moqxwlmpv" path="res://Scripts/DragMechanic/DragHandler.cs" id="3_rff6y"]
 
 [node name="Main" type="Node" unique_id=1331675429]
@@ -27,6 +28,14 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer" unique_id=1726482168]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="CloseButton" parent="UI/MarginContainer/HBoxContainer" unique_id=154511452 instance=ExtResource("3_gw17c")]
+layout_mode = 2
 
 [node name="DragHandler" type="Node" parent="." unique_id=1111109259 node_paths=PackedStringArray("dialControl")]
 script = ExtResource("3_rff6y")

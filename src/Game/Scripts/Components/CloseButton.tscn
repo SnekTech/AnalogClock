@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cl500nm3m3bve"]
+
+[ext_resource type="Script" uid="uid://b4sjrdtemk1at" path="res://Scripts/Components/CloseButton.cs" id="1_lj0x2"]
+
+[node name="CloseButton" type="Button" unique_id=154511452]
+text = "关闭"
+script = ExtResource("1_lj0x2")
